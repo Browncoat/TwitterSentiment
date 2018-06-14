@@ -27,7 +27,7 @@ class TwitterApplicationOnlyService {
         }
     }
     
-    func getTweetsForUser(_ username: String = "twitterapi", count: Int = 1, completion: @escaping (String)->()) {
+    func getTweetsForUser(_ username: String = "twitterapi", count: Int = 1, completion: @escaping ([Tweet])->()) {
         guard let session = session else {
             print("No session")
             return
@@ -42,8 +42,11 @@ class TwitterApplicationOnlyService {
             }
             
             do {
-                let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                completion("it worked!")
+                let jsonData = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+                let decoder = JSONDecoder()
+                let tweets = try! decoder.decode([Tweet].self, from: data)
+                
+                completion(tweets)
             } catch {
                 print(error)
             }

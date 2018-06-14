@@ -17,8 +17,8 @@ class ViewController: UIViewController {
 
         service = TwitterApplicationOnlyService { client in
             if client != nil {
-                client?.getTweetsForUser("twitterapi") { string in
-                    print("hi")
+                client?.getTweetsForUser("twitterapi") { tweets in
+                    print(tweets)
                 }
             }
         }
