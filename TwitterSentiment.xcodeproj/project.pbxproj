@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D5658A2120CF97F000C376E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5658A2020CF97F000C376E3 /* AppDelegate.swift */; };
-		D5658A2320CF97F000C376E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5658A2220CF97F000C376E3 /* ViewController.swift */; };
-		D5658A2620CF97F100C376E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5658A2420CF97F100C376E3 /* Main.storyboard */; };
+		D5658A2320CF97F000C376E3 /* TwitterTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5658A2220CF97F000C376E3 /* TwitterTimelineViewController.swift */; };
 		D5658A2920CF97F100C376E3 /* TwitterSentiment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D5658A2720CF97F100C376E3 /* TwitterSentiment.xcdatamodeld */; };
 		D5658A2B20CF97F100C376E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5658A2A20CF97F100C376E3 /* Assets.xcassets */; };
 		D5658A2E20CF97F100C376E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5658A2C20CF97F100C376E3 /* LaunchScreen.storyboard */; };
@@ -18,6 +17,8 @@
 		D5658A5820D0485700C376E3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5658A5720D0485700C376E3 /* Constants.swift */; };
 		D5658A5D20D1DD3B00C376E3 /* TwitterApplicationOnlyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5658A5C20D1DD3B00C376E3 /* TwitterApplicationOnlyService.swift */; };
 		D58954E720D2EAD10052AACF /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58954E620D2EAD10052AACF /* Tweet.swift */; };
+		D58954E920D30A020052AACF /* TwitterTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58954E820D30A020052AACF /* TwitterTimelineView.swift */; };
+		D58954EB20D325020052AACF /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58954EA20D325020052AACF /* TweetCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +41,7 @@
 /* Begin PBXFileReference section */
 		D5658A1D20CF97F000C376E3 /* TwitterSentiment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterSentiment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5658A2020CF97F000C376E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D5658A2220CF97F000C376E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D5658A2520CF97F100C376E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D5658A2220CF97F000C376E3 /* TwitterTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterTimelineViewController.swift; sourceTree = "<group>"; };
 		D5658A2820CF97F100C376E3 /* TwitterSentiment.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TwitterSentiment.xcdatamodel; sourceTree = "<group>"; };
 		D5658A2A20CF97F100C376E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5658A2D20CF97F100C376E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +55,8 @@
 		D5658A5720D0485700C376E3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D5658A5C20D1DD3B00C376E3 /* TwitterApplicationOnlyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterApplicationOnlyService.swift; sourceTree = "<group>"; };
 		D58954E620D2EAD10052AACF /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		D58954E820D30A020052AACF /* TwitterTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterTimelineView.swift; sourceTree = "<group>"; };
+		D58954EA20D325020052AACF /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +149,9 @@
 		D5658A5220D0411100C376E3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D5658A2220CF97F000C376E3 /* ViewController.swift */,
+				D5658A2220CF97F000C376E3 /* TwitterTimelineViewController.swift */,
+				D58954E820D30A020052AACF /* TwitterTimelineView.swift */,
+				D58954EA20D325020052AACF /* TweetCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -163,7 +167,6 @@
 		D5658A5420D044FE00C376E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D5658A2420CF97F100C376E3 /* Main.storyboard */,
 				D5658A2C20CF97F100C376E3 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -291,7 +294,6 @@
 			files = (
 				D5658A2E20CF97F100C376E3 /* LaunchScreen.storyboard in Resources */,
 				D5658A2B20CF97F100C376E3 /* Assets.xcassets in Resources */,
-				D5658A2620CF97F100C376E3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,10 +319,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5658A2920CF97F100C376E3 /* TwitterSentiment.xcdatamodeld in Sources */,
-				D5658A2320CF97F000C376E3 /* ViewController.swift in Sources */,
+				D5658A2320CF97F000C376E3 /* TwitterTimelineViewController.swift in Sources */,
 				D5658A2120CF97F000C376E3 /* AppDelegate.swift in Sources */,
+				D58954EB20D325020052AACF /* TweetCell.swift in Sources */,
 				D58954E720D2EAD10052AACF /* Tweet.swift in Sources */,
 				D5658A5D20D1DD3B00C376E3 /* TwitterApplicationOnlyService.swift in Sources */,
+				D58954E920D30A020052AACF /* TwitterTimelineView.swift in Sources */,
 				D5658A5820D0485700C376E3 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,14 +361,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D5658A2420CF97F100C376E3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D5658A2520CF97F100C376E3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D5658A2C20CF97F100C376E3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
