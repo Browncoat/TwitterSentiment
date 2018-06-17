@@ -25,7 +25,15 @@ class TwitterTimelineViewController: UIViewController {
         customView.tableView.register(TweetCell.self, forCellReuseIdentifier: TweetCell.identifier)
         customView.tableView.delegate = self
         customView.tableView.dataSource = self
+        customView.tableView.rowHeight = UITableViewAutomaticDimension
+        customView.tableView.estimatedRowHeight = 100
 
+        
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         service = TwitterApplicationOnlyService { [weak self] client in
             if client != nil {
                 client?.getTweetsForUser("twitterapi") { tweets in
@@ -37,7 +45,7 @@ class TwitterTimelineViewController: UIViewController {
             }
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -55,16 +63,17 @@ extension TwitterTimelineViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let tweet = tweets?[indexPath.row] {
-            (cell as? TweetCell)?.tweetLabel.text = tweet.text
+        if let tweet = tweets?[indexPath.row], let cell = cell as? TweetCell {
             let sentiment = classificationService.predictSentiment(from: tweet.text)
-            (cell as? TweetCell)?.tweetSentimentLabel.text = sentiment.emoji
+            cell.tweetSentimentLabel.text = sentiment.emoji
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TweetCell.identifier, for: indexPath) as! TweetCell
- 
+        if let tweet = tweets?[indexPath.row] {
+            cell.tweetLabel.text = tweet.text
+        }
         return cell
     }
 }

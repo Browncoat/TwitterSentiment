@@ -17,19 +17,22 @@ class TweetCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        contentView.layoutMargins = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        
         tweetLabel.numberOfLines = 0
+        tweetLabel.lineBreakMode = .byWordWrapping
         
         contentView.addSubview(tweetLabel)
         contentView.addSubview(tweetSentimentLabel)
         
         tweetLabel.translatesAutoresizingMaskIntoConstraints = false
-        tweetLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        tweetLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        tweetLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: padding).isActive = true
+        tweetLabel.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor).isActive = true
+        tweetLabel.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor).isActive = true
+        tweetLabel.leftAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leftAnchor).isActive = true
         tweetLabel.rightAnchor.constraint(equalTo: tweetSentimentLabel.leftAnchor, constant: padding).isActive = true
         
         tweetSentimentLabel.translatesAutoresizingMaskIntoConstraints = false
-        tweetSentimentLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: padding).isActive = true
+        tweetSentimentLabel.rightAnchor.constraint(equalTo: contentView.layoutMarginsGuide.rightAnchor).isActive = true
         tweetSentimentLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         tweetSentimentLabel.widthAnchor.constraint(equalToConstant: 50).isActive = true
         tweetSentimentLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
