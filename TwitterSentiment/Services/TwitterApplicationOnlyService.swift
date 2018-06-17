@@ -67,7 +67,7 @@ extension TwitterApplicationOnlyService {
         request.httpBody = "grant_type=client_credentials".data(using: .utf8)
         
         let config = URLSessionConfiguration.default
-        let userPasswordString = "\(API.consumerKey.rawValue):\(API.consumerSecret.rawValue)"
+        let userPasswordString = "\(Keys.consumerKey.rawValue):\(Keys.consumerSecret.rawValue)"
         let userPasswordData = userPasswordString.data(using: String.Encoding.utf8)
         let base64EncodedCredential = userPasswordData!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         let authString = "Basic \(base64EncodedCredential)"
