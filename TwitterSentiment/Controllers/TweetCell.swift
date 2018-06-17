@@ -10,29 +10,29 @@ import UIKit
 
 class TweetCell: UITableViewCell {
     static let identifier = "tweetcell_identifier"
-    let tweetTextLabel = UILabel()
-    let tweetSentimentImageView = UIImageView()
+    let tweetLabel = UILabel()
+    let tweetSentimentLabel = UILabel()
     let padding: CGFloat = 20
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        tweetTextLabel.numberOfLines = 0
+        tweetLabel.numberOfLines = 0
         
-        contentView.addSubview(tweetTextLabel)
-        contentView.addSubview(tweetSentimentImageView)
+        contentView.addSubview(tweetLabel)
+        contentView.addSubview(tweetSentimentLabel)
         
-        tweetTextLabel.translatesAutoresizingMaskIntoConstraints = false
-        tweetTextLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        tweetTextLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        tweetTextLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: padding).isActive = true
-        tweetTextLabel.rightAnchor.constraint(equalTo: tweetSentimentImageView.leftAnchor, constant: padding).isActive = true
+        tweetLabel.translatesAutoresizingMaskIntoConstraints = false
+        tweetLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        tweetLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        tweetLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: padding).isActive = true
+        tweetLabel.rightAnchor.constraint(equalTo: tweetSentimentLabel.leftAnchor, constant: padding).isActive = true
         
-        tweetSentimentImageView.translatesAutoresizingMaskIntoConstraints = false
-        tweetSentimentImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: padding).isActive = true
-        tweetSentimentImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        tweetSentimentImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        tweetSentimentImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        tweetSentimentLabel.translatesAutoresizingMaskIntoConstraints = false
+        tweetSentimentLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: padding).isActive = true
+        tweetSentimentLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        tweetSentimentLabel.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        tweetSentimentLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -10,6 +10,7 @@ import UIKit
 
 class TwitterTimelineViewController: UIViewController {
     let customView = TwitterTimelineView()
+    let classificationService = ClassificationService()
     
     var service: TwitterApplicationOnlyService!
     var tweets: [Tweet]?
@@ -54,7 +55,11 @@ extension TwitterTimelineViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        (cell as? TweetCell)?.tweetTextLabel.text = tweets?[indexPath.row].text
+        if let tweet = tweets?[indexPath.row] {
+            (cell as? TweetCell)?.tweetLabel.text = tweet.text
+            let sentiment = classificationService.predictSentiment(from: tweet.text)
+            (cell as? TweetCell)?.tweetSentimentLabel.text = sentiment.emoji
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
