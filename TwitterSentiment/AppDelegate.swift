@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let twitterTimelineViewController = TwitterTimelineViewController()
-        let navigationController = UINavigationController(rootViewController: twitterTimelineViewController)
+        let vc = SelectTwitterUserTimelineViewController()
+        let navigationController = UINavigationController(rootViewController: vc)
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController

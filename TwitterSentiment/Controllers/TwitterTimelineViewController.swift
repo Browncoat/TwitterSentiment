@@ -8,15 +8,22 @@
 
 import UIKit
 
-class TwitterTimelineViewController: UIViewController {
+final class TwitterTimelineViewController: UIViewController, Injectable {
     let customView = TwitterTimelineView()
     let classificationService = ClassificationService()
+    var username: String?
     
     var service: TwitterApplicationOnlyService!
     var tweets: [Tweet]?
     
     override func loadView() {
         view = customView
+    }
+    
+    convenience init<Element>(context: Element) {
+        self.init(nibName: nil, bundle: nil)
+        
+        username = context as? String
     }
 
     override func viewDidLoad() {
@@ -27,20 +34,21 @@ class TwitterTimelineViewController: UIViewController {
         customView.tableView.dataSource = self
         customView.tableView.rowHeight = UITableViewAutomaticDimension
         customView.tableView.estimatedRowHeight = 100
-
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         service = TwitterApplicationOnlyService { [weak self] client in
-            if client != nil {
-                client?.getTweetsForUser("twitterapi") { tweets in
-                    self?.tweets = tweets
-                    DispatchQueue.main.async {
-                        self?.customView.tableView.reloadData()
-                    }
+            guard let client = client, let username = self?.username else {
+                print("No client")
+                return
+            }
+            
+            client.getTweetsForUser(username) { tweets in
+                self?.tweets = tweets
+                DispatchQueue.main.async {
+                    self?.customView.tableView.reloadData()
                 }
             }
         }
