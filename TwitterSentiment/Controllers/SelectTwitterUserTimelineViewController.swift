@@ -18,8 +18,25 @@ class SelectTwitterUserTimelineViewController: UIViewController {
     override func viewDidLoad() {
         customView.textField.delegate = self
         
-        customView.textField.placeholder = "Helllloooo"
-        customView.button.setTitle("Hi", for: .normal)
+        customView.textField.placeholder = "Type username here"
+        
+        customView.button.setTitle("Done", for: .normal)
+        customView.button.addTarget(self, action: #selector(didPressDoneButton), for: .touchUpInside)
+    }
+    
+    @objc func didPressDoneButton() {
+        guard let string = customView.textField.text, string.isEmpty == false else {
+            showTexfieldEmptyAlert()
+            return
+        }
+        let vc = TwitterTimelineViewController(context: string)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showTexfieldEmptyAlert() {
+        let alert = UIAlertController(title: "Oooops!", message: "Textfield is empty", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in alert.dismiss(animated: true) }))
+        present(alert, animated: true)
     }
 }
 
@@ -29,8 +46,8 @@ extension SelectTwitterUserTimelineViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard let string = textField.text else {
-            print("No text")
+        guard let string = textField.text, string.isEmpty == false else {
+            showTexfieldEmptyAlert()
             return false
         }
         let vc = TwitterTimelineViewController(context: string)
