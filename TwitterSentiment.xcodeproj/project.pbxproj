@@ -10,6 +10,10 @@
 		D54EC32220D61451004E428F /* SentimentPolarity.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D54EC32120D61451004E428F /* SentimentPolarity.mlmodel */; };
 		D54EC32420D6146D004E428F /* Sentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54EC32320D6146D004E428F /* Sentiment.swift */; };
 		D54EC32620D6147F004E428F /* ClassificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54EC32520D6147F004E428F /* ClassificationService.swift */; };
+		D54EC32820D820BE004E428F /* SelectTwitterUserTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54EC32720D820BE004E428F /* SelectTwitterUserTimelineViewController.swift */; };
+		D54EC32A20D820CE004E428F /* SelectTwitterUserTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54EC32920D820CE004E428F /* SelectTwitterUserTimelineView.swift */; };
+		D54EC32C20D88ADD004E428F /* ViewControllerContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54EC32B20D88ADD004E428F /* ViewControllerContext.swift */; };
+		D54EC32F20D985E5004E428F /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54EC32E20D985E5004E428F /* Injectable.swift */; };
 		D5658A2120CF97F000C376E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5658A2020CF97F000C376E3 /* AppDelegate.swift */; };
 		D5658A2320CF97F000C376E3 /* TwitterTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5658A2220CF97F000C376E3 /* TwitterTimelineViewController.swift */; };
 		D5658A2920CF97F100C376E3 /* TwitterSentiment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D5658A2720CF97F100C376E3 /* TwitterSentiment.xcdatamodeld */; };
@@ -46,6 +50,10 @@
 		D54EC32120D61451004E428F /* SentimentPolarity.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SentimentPolarity.mlmodel; sourceTree = "<group>"; };
 		D54EC32320D6146D004E428F /* Sentiment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sentiment.swift; sourceTree = "<group>"; };
 		D54EC32520D6147F004E428F /* ClassificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassificationService.swift; sourceTree = "<group>"; };
+		D54EC32720D820BE004E428F /* SelectTwitterUserTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTwitterUserTimelineViewController.swift; sourceTree = "<group>"; };
+		D54EC32920D820CE004E428F /* SelectTwitterUserTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTwitterUserTimelineView.swift; sourceTree = "<group>"; };
+		D54EC32B20D88ADD004E428F /* ViewControllerContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerContext.swift; sourceTree = "<group>"; };
+		D54EC32E20D985E5004E428F /* Injectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injectable.swift; sourceTree = "<group>"; };
 		D5658A1D20CF97F000C376E3 /* TwitterSentiment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterSentiment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5658A2020CF97F000C376E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5658A2220CF97F000C376E3 /* TwitterTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterTimelineViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D54EC32D20D985D2004E428F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D54EC32E20D985E5004E428F /* Injectable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		D5658A1420CF97F000C376E3 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +131,7 @@
 		D5658A1F20CF97F000C376E3 /* TwitterSentiment */ = {
 			isa = PBXGroup;
 			children = (
+				D54EC32D20D985D2004E428F /* Protocols */,
 				D5658A5920D1C64D00C376E3 /* Services */,
 				D5658A5620D045DB00C376E3 /* Resources */,
 				D5658A5420D044FE00C376E3 /* Views */,
@@ -152,6 +169,7 @@
 			children = (
 				D58954E620D2EAD10052AACF /* Tweet.swift */,
 				D54EC32320D6146D004E428F /* Sentiment.swift */,
+				D54EC32B20D88ADD004E428F /* ViewControllerContext.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,6 +180,8 @@
 				D5658A2220CF97F000C376E3 /* TwitterTimelineViewController.swift */,
 				D58954E820D30A020052AACF /* TwitterTimelineView.swift */,
 				D58954EA20D325020052AACF /* TweetCell.swift */,
+				D54EC32720D820BE004E428F /* SelectTwitterUserTimelineViewController.swift */,
+				D54EC32920D820CE004E428F /* SelectTwitterUserTimelineView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -336,12 +356,16 @@
 				D54EC32420D6146D004E428F /* Sentiment.swift in Sources */,
 				D58954EB20D325020052AACF /* TweetCell.swift in Sources */,
 				D58954ED20D4E3D80052AACF /* apiKeys.swift in Sources */,
+				D54EC32A20D820CE004E428F /* SelectTwitterUserTimelineView.swift in Sources */,
 				D58954E720D2EAD10052AACF /* Tweet.swift in Sources */,
 				D54EC32220D61451004E428F /* SentimentPolarity.mlmodel in Sources */,
+				D54EC32820D820BE004E428F /* SelectTwitterUserTimelineViewController.swift in Sources */,
 				D5658A5D20D1DD3B00C376E3 /* TwitterApplicationOnlyService.swift in Sources */,
 				D58954E920D30A020052AACF /* TwitterTimelineView.swift in Sources */,
+				D54EC32F20D985E5004E428F /* Injectable.swift in Sources */,
 				D5658A5820D0485700C376E3 /* Constants.swift in Sources */,
 				D54EC32620D6147F004E428F /* ClassificationService.swift in Sources */,
+				D54EC32C20D88ADD004E428F /* ViewControllerContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
